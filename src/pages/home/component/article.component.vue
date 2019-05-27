@@ -1,9 +1,9 @@
 <template>
     <div id="webshop-article">
         <div id="article-container">
-            <article v-for="(product,key) in products.slice(0,4)" :key="key">
+            <article v-for="(product,key) in products.slice(0,5)" :key="key" @click="goProductPage(product,key)">
                 <h2>{{product.name}}</h2>
-                <img :src="product.img" :alt="product.name" >
+                <img :src="product.img" :alt="product.name"  >
             </article>
         </div>
     </div>
@@ -17,7 +17,13 @@ export default {
        ...mapState([
            'products'
         ])
-    }
+    },
+    methods:{
+        goProductPage(product,index){
+            this.$router.push('/products/'+index) 
+        }
+        
+    },
 }
 </script>
 
@@ -29,6 +35,7 @@ export default {
         display: grid;
         grid-template-columns:50% 50%;
         grid-gap: 1em;
+        cursor: pointer;
     }
 
     #article-container article{

@@ -7,7 +7,7 @@
         <div id="nav">
           <router-link to="/">Home</router-link> 
           <router-link to="/about">About</router-link>
-          <router-link to="/products">Products</router-link>
+          <router-link to="/products_list">Products</router-link>
         </div>
       </div>
     </div>  
@@ -64,13 +64,13 @@ export default {
 
 #nav-wrapper{
   max-height: 0;
-  opacity: 0;
+  display: none;
 }
 
 .nav-visibility{
   visibility: visible  !important;
-  opacity: 1  !important;
-    max-height: 100% !important;
+  display: block !important;
+  max-height: 100% !important;
   transition: max-height 100000s;
 
 }

@@ -12,9 +12,13 @@
 
 <script>
 import webshopArticle from './component/article.component.vue';
+import AppVue from '../../App.vue';
 export default {
     components:{
         webshopArticle
+    },
+    destroyed(){
+      this.$parent.showNav =false;
     }
 }
 </script>

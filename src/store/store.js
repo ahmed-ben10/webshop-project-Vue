@@ -25,7 +25,7 @@ export default new Vuex.Store({
                 name:"Samsung s7",
                 price: 450,
                 img:"https://mobiel-assets.imgix.net/product_images/images/21259/original/galaxy_s7_black_front__2c6322bdb488671d2dd14a1fe9358cf9ba45a818.jpg?auto=compress%2Cformat&w=500&h=500&dpr=1&s=049cf07f4a4fef76bc74a7a25d5c3d50",
-            }
+            },
         ]
     }
 });

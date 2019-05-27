@@ -6,7 +6,9 @@
 
 <script>
 export default {
-
+    destroyed(){
+      this.$parent.showNav =false;
+    }
 }
 </script>
 
