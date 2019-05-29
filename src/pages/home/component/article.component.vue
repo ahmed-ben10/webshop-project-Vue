@@ -41,7 +41,7 @@ export default {
     #article-container article{
         padding: 1em;
         border-radius:5px;
-        background-color: #ffa0cf;
+        background-color: #c0cbb7;
     }
 
     #article-container article img{

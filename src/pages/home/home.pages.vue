@@ -1,7 +1,7 @@
 <template>
     <div id="home">
         <header>
-            <img class="bigimage"  src="https://3wga6448744j404mpt11pbx4-wpengine.netdna-ssl.com/wp-content/uploads/2013/02/blog_css1.jpg" alt="bigimage" >
+            <img class="bigimage"  src="http://locatieonafhankelijkwerk.nl/wp-content/uploads/2017/01/Website.png" alt="bigimage" >
         </header>
         <main>
             <webshopArticle />

@@ -7,7 +7,7 @@
         <div id="nav">
           <router-link to="/">Home</router-link> 
           <router-link to="/about">About</router-link>
-          <router-link to="/products_list">Products</router-link>
+          <router-link to="/products">Products</router-link>
         </div>
       </div>
     </div>  
@@ -46,7 +46,7 @@ export default {
   color: #2c3e50;
 }
 #nav-container {
-    background-color: #ffa0cf;
+    background-color: #c0cbb7;
     width: 100%;
     top: 0;
     position: sticky;
@@ -84,7 +84,7 @@ export default {
   border-bottom: 1px solid lightgray;
 }
 #nav a:hover {
-  background-color: #00eeff;
+  background-color: #fee2c3 ;
 }
 #nav a.router-link-exact-active {
   color: #fbff00;
