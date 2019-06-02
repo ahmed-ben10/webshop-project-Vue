@@ -12,6 +12,9 @@
       </div>
     </div>  
     <router-view/>
+    <footer>
+      <p>&copy;Ahmed Benhajar|Publication without the author's permission is prohibited by law </p>
+    </footer>
   </div>
 </template>
 
@@ -38,12 +41,16 @@ export default {
 *{
   margin: 0;
 }
+body{
+  height:-webkit-fill-available;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
 }
 #nav-container {
     background-color: #c0cbb7;
@@ -88,5 +95,13 @@ export default {
 }
 #nav a.router-link-exact-active {
   color: #fbff00;
+}
+footer {
+  width:100%;
+  height: 100px;
+  background-color:#c0cbb7;
+  bottom:auto;
+  font-weight: bold;
+  line-height:100px;
 }
 </style>

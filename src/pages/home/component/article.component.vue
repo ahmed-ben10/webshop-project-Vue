@@ -28,9 +28,6 @@ export default {
 </script>
 
 <style>
-    #webshop-article{
-
-    }
     #article-container{
         display: grid;
         grid-template-columns:50% 50%;
@@ -41,7 +38,8 @@ export default {
     #article-container article{
         padding: 1em;
         border-radius:5px;
-        background-color: #c0cbb7;
+        /* background-color: #ffa0cf; */
+        border:1px solid gray;
     }
 
     #article-container article img{
