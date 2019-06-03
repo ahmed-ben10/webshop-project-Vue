@@ -7,16 +7,18 @@
             <div id="content-container">
                 <info :products="products" :inStock="inStock"/>
                 <specs :products="products" />
-                <cartButtons  :products="products" :aantal="aantal" @orderPhone="orderPhone" @removePhone="removePhone"/>
-                <h3 id="price"> &euro;{{products[this.$route.params.id].price}}</h3>    
-                <p id="inTotal"> In total: &euro;{{inTotal}}</p>  
+                <cartButtons  :products="products" :aantal="aantal" @updateCart="updateCart"/>
+                <div id="money-diplay">
+                    <h3 id="price"> &euro;{{products[this.$route.params.id].price}}</h3>    
+                    <p id="inTotal"> In total: &euro;{{inTotal}}</p>  
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import info from './components/info.components.vue';
 import specs from "./components/specs.components.vue";
 import cartButtons from './components/cart_buttons.components.vue';
@@ -36,15 +38,12 @@ export default {
         }
     },
     methods:{
-        orderPhone(){
-              this.winkelwagen.push(this.products[this.$route.params.id]);    
-              this.aantal++;                                                                                                                                                                                                                                                                                                      
-        },
-        removePhone(){
-            if(this.winkelwagen.length >0){
-                this.winkelwagen.pop();  
-                this.aantal--;                                                                                                                                                                                                                                                                                                      
-            }
+        ...mapMutations([
+            'ADD_TO_CART'
+        ]),
+        updateCart(quantity){
+                this.aantal= quantity;
+                this.ADD_TO_CART(this.products[this.$route.params.id]);
         }
     },
     computed:{
@@ -81,15 +80,14 @@ export default {
         grid-template-columns: 50% 50%;
     }
     #image-container{
-        border:1px solid gray; 
         margin-right: 2rem;
     }
     #image-container img{
         width: 100%;
+        border:1px solid gray; 
     }
     #info-container h2 {
         font-weight: 900;
-        padding: 1rem;
         text-align: left;
     }
     #specs-container h4 {
@@ -116,33 +114,21 @@ export default {
         padding: 1rem;
         background-color: #c0cbb7;
     }
-    #price{
-        font-size: 50pt;
-        text-align: left;
-    }
-    #setToCart{
-        display:grid;
-        grid-template-columns: 50% 50%;
-        grid-gap: 1rem;
-    }
-    #setToCart button{
-        padding:1rem;
-        border:none;
-        border-radius: 1rem;
-        outline:none;
-        cursor: pointer;
-        color: white;
-        font-weight: 900;
-    }
-    #addToCart{
-        background-color:rgb(75, 110, 45);
-    }
-    #removeFromCart{
-        background-color: lightcoral;
+     #specs-container{
+         margin-bottom: 2%;
+     }
+    #setCart{
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0 1rem 0;
     }
     .disabledButton{
         background-color: lightgray !important;
         cursor:not-allowed !important;
+    }
+    #price{
+        font-size: 50pt;
+        text-align: left;
     }
     #inTotal{
         font-size: 50pt;
