@@ -7,43 +7,51 @@
             <div id="content-container">
                 <info :products="products" :inStock="inStock"/>
                 <specs :products="products" />
-                <cartButtons  :products="products" :aantal="aantal" @updateCart="updateCart"/>
+                <cartButtons  :products="products" :aantal="aantal" @updateQuantity="updateQuantity1"/>
                 <div id="money-diplay">
                     <h3 id="price"> &euro;{{products[this.$route.params.id].price}}</h3>    
                     <p id="inTotal"> In total: &euro;{{inTotal}}</p>  
                 </div>
+                <orderButton @updateCart="updateCart" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, Store } from "vuex";
 import info from './components/info.components.vue';
 import specs from "./components/specs.components.vue";
 import cartButtons from './components/cart_buttons.components.vue';
-
+import orderButton from './components/orderButton.components.vue';
 
 export default {
     name:"product",
     components:{
         info,
         specs,
-        cartButtons
+        cartButtons,
+        orderButton
     },
     data:()=>{
         return{
             winkelwagen: [],
-            aantal:0
+            aantal:0   
         }
     },
     methods:{
         ...mapMutations([
             'ADD_TO_CART'
         ]),
-        updateCart(quantity){
-                this.aantal= quantity;
-                this.ADD_TO_CART(this.products[this.$route.params.id]);
+        updateQuantity1(quantity){
+            this.aantal= quantity;
+        },
+        updateCart(){
+                // this.ADD_TO_CART(this.products[this.$route.params.id]);
+            for(var i=0; i< this.aantal;i++){
+                this.$store.commit("ADD_TO_CART",this.products[this.$route.params.id]);
+            }
+            this.aantal=0;
         }
     },
     computed:{

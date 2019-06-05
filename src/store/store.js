@@ -56,10 +56,8 @@ export default new Vuex.Store({
     mutations:{
         ADD_TO_CART:(state, product )=>{
             state.winkelwagen.push(product);
-            console.log("MUTATIONS");
-            for(var i=0; i<state.winkelwagen;i++){
-                console.log(state.winkelwagen[i]);
-            }
+            console.log(state.winkelwagen);
+            
         }
     }
 });

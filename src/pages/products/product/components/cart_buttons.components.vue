@@ -2,28 +2,32 @@
     <div id="setToCart">
         <input type="number" 
             id="setCart" 
-            @click="updateCart" 
+            @click="updateQuantity" 
             :min="0"
             :max="10"
-            v-model="quantity"
+            v-model="Aantal"
             :class="{ disabledButton: !products[this.$route.params.id].stock }" 
             :disabled="!products[this.$route.params.id].stock"
-            @keyup="updateCart">
+            @keyup="updateQuantity">
     </div>
 </template>
 
 <script>
 export default {
     name:"cart_buttons",
-    props:['products','aantal'],
+    mounted(){
+        this.Aantal=this.aantal;
+    },
     data:function(){
         return{
-            quantity:0
+            Aantal:null
         }
     },
+    props:['products','aantal'],
     methods:{
-        updateCart(){
-            this.$emit('updateCart', this.quantity);
+        updateQuantity(){
+            this.$emit('updateQuantity', this.Aantal);
+            console.log(this.Aantal)
         }
     }
 }
