@@ -36,7 +36,7 @@ export default {
     data:()=>{
         return{
             winkelwagen: [],
-            aantal:0   
+            aantal:0,  
         }
     },
     methods:{
@@ -52,6 +52,7 @@ export default {
                 this.$store.commit("ADD_TO_CART",this.products[this.$route.params.id]);
             }
             this.aantal=0;
+            this.$children[2].Aantal=0;
         }
     },
     computed:{
@@ -141,5 +142,17 @@ export default {
     #inTotal{
         font-size: 50pt;
         text-align: left;
+    }
+    #order-button{
+        padding: 1rem;
+        background-color:#869c73;
+        font-weight: 900;
+        width: 50%;
+        border-radius:20px;
+        border: gray solid 1pt;
+    }
+    #order-button:hover{
+        cursor: pointer;
+        background-color: #c0cbb7;
     }
 </style>

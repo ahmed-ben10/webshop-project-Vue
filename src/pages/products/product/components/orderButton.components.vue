@@ -1,6 +1,6 @@
 <template>
-    <div id="order-button">
-        <button @click="updateCart">Order</button>
+    <div id="order-button-container">
+        <button id="order-button" @click="updateCart">Order</button>
     </div>
 </template>
 

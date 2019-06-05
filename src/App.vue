@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav-container">
-      <img id="nav-icon" src="http://iconshow.me/media/images/ui/slim-square-icons/png/512/nav.png" @click="setShowNav" />
-      <!-- <div id="nav-wrapper" :style="{display:showNav}"> -->
+      <img class="nav-icon" src="http://iconshow.me/media/images/ui/slim-square-icons/png/512/nav.png" @click="setShowNav" />
+      <img class="nav-icon right" src="https://image.flaticon.com/icons/svg/2/2772.svg" alt="">
       <div id="nav-wrapper" :class="{ 'nav-visibility': showNav }">
         <div id="nav">
           <router-link to="/">Home</router-link> 
@@ -57,12 +57,16 @@ body{
     width: 100%;
     top: 0;
     position: sticky;
-    text-align: right;
+    text-align: left;
 }
-#nav-icon{
+.nav-icon{
   width:50px;
   right: 0;
   cursor:pointer;
+}
+.right{
+  float: right;
+  margin-right: 1%;   
 }
 #nav {
     display: grid;
