@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav-container">
       <img class="nav-icon" src="http://iconshow.me/media/images/ui/slim-square-icons/png/512/nav.png" @click="setShowNav" />
-      <img class="nav-icon right" src="https://image.flaticon.com/icons/svg/2/2772.svg" alt="">
+     <router-link to="/winkelwagen"> <img class="nav-icon right" src="https://image.flaticon.com/icons/svg/2/2772.svg" alt=""> </router-link>
       <div id="nav-wrapper" :class="{ 'nav-visibility': showNav }">
         <div id="nav">
           <router-link to="/">Home</router-link> 
