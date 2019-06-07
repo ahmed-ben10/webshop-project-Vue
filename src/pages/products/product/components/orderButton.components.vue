@@ -6,13 +6,13 @@
 
 <script>
 export default {
-name:"orderButton",
- methods:{
-        updateCart(){
-            this.$emit('updateCart');
+    name:'orderButton',
+    methods:{
+            updateCart(){
+                this.$emit('updateCart');
+            }
         }
     }
-}
 </script>
 
 <style>
