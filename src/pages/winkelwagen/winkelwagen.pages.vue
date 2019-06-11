@@ -1,28 +1,30 @@
 <template>
-    <div id="winkelwagen-container">
+    <div id="winkelwagen-container" >
         <div id="titel"><h2>Shoping cart</h2></div>
-        <winkelwagen :winkelwagen="winkelwagen"/>
-        <div id="winkelwagen-container-bottom">
-            <div id="couponcode">
-                <h2>Coupon code</h2>
-                <input type="text" id="code" placeholder="code" />
-                <button id="korting" onclick="main.checkKortingsCode();">click</button>
-            </div>
-            <div id="bestel-total"> 
-                <h2 id="total-container">Total: <h3 id="total"></h3></h2>
-                <button id="bestellen" onclick="main.bestel();">Order</button>
-            </div>
-                    
+        <div id="winkelwagen" v-if="winkelwagen.length">
+            <winkelwagen  :winkelwagen="winkelwagen"/>
+            <div id="winkelwagen-container-bottom">
+              <coupon />
+              <bestel-order :winkelwagen="winkelwagen"/>
+            </div>        
+        </div>
+        <div id="winkelwagen-leeg" v-else>
+            <p>There are no items in the shopping cart</p>
         </div>
     </div>
 </template>
 
 <script>
-import winkelwagen from './components/winkelwagen.components';
 import { mapState } from "vuex";
+import winkelwagen from './components/winkelwagen.components';
+import coupon from './components/coupon.components.vue';
+import bestelOrder from './components/bestel_order.components.vue';
+
 export default {
     components:{
-        winkelwagen
+        winkelwagen,
+        coupon,
+        bestelOrder
     },
     computed:{
         ...mapState([
@@ -58,7 +60,7 @@ table {
   margin-top: 2%;
   width: 100%;
   background-color: #c0cbb7;
-  color: #FFFFFF;
+  color: #2c3e50;
 }
 
 table thead {
@@ -101,7 +103,7 @@ table td, table th {
 }
   #bestellen{
     margin-left: 1%;
-  background-color: #a4ae9c;
+    background-color: #a4ae9c;
     color: white;
     width: 95%;
     height: 40px;
@@ -120,17 +122,16 @@ table td, table th {
     display: table-caption;
   }
 
-  #winkelwagen-container-bottom{
+  #winkelwagen-container-bottom, #winkelwagen-leeg{
    background-color: #a4ae9c;
    margin-top: 1%;
    padding: 1%;
    height: 103px;
- }
+  }
  #korting {
   padding: 1%;
    
  }
- 
   #code {
    float: left;
    width: 59%;

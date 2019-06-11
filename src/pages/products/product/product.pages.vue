@@ -48,7 +48,7 @@ export default {
         },
         updateCart(){
                 // this.ADD_TO_CART(this.products[this.$route.params.id]);
-            for(var i=0; i<= this.aantal;i++){
+            for(var i=0; i< this.aantal;i++){
                 this.$store.commit("ADD_TO_CART",this.products[this.$route.params.id]);
             }
             this.aantal=0;

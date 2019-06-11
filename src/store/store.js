@@ -60,15 +60,18 @@ export default new Vuex.Store({
     ADD_TO_CART: (state, product) => {
       if (state.winkelwagen.length == 0) {
         state.winkelwagen.push(product);
+        state.winkelwagen[0].aantal+=1;
       } else {
-        for (let i = 0; i <= state.winkelwagen.length; i++) {
+        for (let i = 0; i < state.winkelwagen.length; i++) {
           if (state.winkelwagen[i].name == product.name) {
             state.winkelwagen[i].aantal += 1;
             console.log(state.winkelwagen);
             return;
+          } else if(i == (state.winkelwagen.length-1)){
+            state.winkelwagen.push(product);
           }
         }
-        state.winkelwagen.p
+
       }
       console.log(state.winkelwagen);
 

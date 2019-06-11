@@ -7,11 +7,11 @@
             <th>Price</th>
         </thead>
         <tbody>
-            <tr v-for="(winkelwagen,index) in winkelwagen" :key="index">
-                <td><img :src="winkelwagen.img" alt="phone image" id="albumimage"></td>
-                <td>{{winkelwagen.name}}</td>
-                <td> <input type="number"  id="selectNumber"> </td>
-                <td>{{inTotal}}</td>
+            <tr v-for="(product,index) in winkelwagen" :key="index">
+                <td><img :src="product.img" alt="phone image" id="albumimage"></td>
+                <td>{{product.name}}</td>
+                <td> <input type="number"  id="selectNumber"  v-model="product.aantal" min="0" max="10"> </td>
+                <td>&euro;{{inTotal(product)}}</td>
             </tr>
         </tbody>
     </table>
@@ -24,6 +24,18 @@ export default {
         winkelwagen:{
             type:null,
             required:false
+        }
+    },
+    methods:{
+        inTotal(product){
+            var totaal= product.aantal*product.price;
+            return totaal.toFixed(2)
+        },
+        checkNumber(number){
+            if(number<=0){
+                return number=0;
+                console.log('check the data right  now')
+            }
         }
     }
 }
